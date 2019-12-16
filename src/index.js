@@ -1,8 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'typeface-lobster';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import WebFont from 'webfontloader';
+
+WebFont.load({
+    google: {
+      families: ['Yeon Sung']
+    }
+  });
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
