@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
-
+import GuestInfo from './GuestInfoComponent';
 
 class Guests extends Component {
     constructor(props) {
@@ -15,20 +15,6 @@ class Guests extends Component {
         this.setState({selectedCelebs: celebs});
     }
 
-    renderSelectedCelebs(celebs) {
-        if (celebs) {
-            return (
-                <Card>
-                    <CardImg top src={celebs.image} alt={celebs.name} />
-                    <CardBody>
-                        <CardTitle>{celebs.name}</CardTitle>
-                        <CardText>{celebs.description}</CardText>
-                    </CardBody>
-                </Card>
-            );
-        }
-        return <div />;
-    }
 
     render() {
         const guests = this.props.celebs.map(celebs => {
@@ -50,11 +36,7 @@ class Guests extends Component {
                 <div className="row">
                     {guests}
                 </div>
-                <div className="row">
-                    <div className="col-md-5 m-1">
-                        {this.renderSelectedCelebs(this.state.selectedCelebs)}
-                    </div>
-                </div>
+                <GuestInfo celebs={this.state.selectedCelebs}></GuestInfo>
             </div>
         );
     }
