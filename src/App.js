@@ -15,10 +15,9 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <Navbar dark>
+                <Navbar dark color="success">
                     <div className="container">
-                        <NavbarBrand href="/">
-                            REGNAcon! - culture-con fit for geek royalty </NavbarBrand>
+                        <NavbarBrand href="/">REGNAcon!</NavbarBrand>
                     </div>
                 </Navbar>
                 <Guests celebs={this.state.celebs} />
