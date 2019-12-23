@@ -1,13 +1,15 @@
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Yeon Sung", cursive;
 }
 
 p {
   text-align: center;
+  
 }
 
 .p2 {
   text-align: left;
+  
 }
 
 .p3 {
@@ -20,6 +22,7 @@ h1, h2, h3, h6 {
 
 h4 {
   text-align: center;
+
 }
 
 h5 {
@@ -30,6 +33,7 @@ h5 {
 h6 {
   text-align: left;
   font-size: 20px;
+  
 }
 
 a {
@@ -75,6 +79,7 @@ footer {
 
 .navbar {
   background-color: rgb(4, 51, 14);
+  font-family: 'Yeon Sung', cursive;
 }
 
 .carousel-caption {

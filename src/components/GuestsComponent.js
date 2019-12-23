@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import '../App.css';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+
 
 class Guests extends Component {
     constructor(props) {
