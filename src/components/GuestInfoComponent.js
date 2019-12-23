@@ -24,7 +24,7 @@ class GuestInfo extends Component {
                 <div className="col-md-5 m-1">
                     <h4>Comments</h4>
                     {comments.map(comment => {
-                        return (<div key={comment.id} > {comment.text}<br/>-- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comment.date)))}<br/><br/></div>);
+                        return (<div key={comment.id} > {comment.text}<br />-- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comment.date)))}<br /><br /></div>);
                     }
                     )
                     }
@@ -41,15 +41,16 @@ class GuestInfo extends Component {
     render() {
         if (this.props.celebs) {
             return (
-                <div className="row">
-                    {this.renderCelebs(this.props.celebs)}
-                    {this.renderComments(this.props.celebs.comments)}
+                <div className="container">
+                    <div className="row">
+                        {this.renderCelebs(this.props.celebs)}
+                        {this.renderComments(this.props.celebs.comments)}
+                    </div>
                 </div>
             );
         }
         return (
-            <div>
-            </div>
+            <div />
         );
     }
 }

@@ -20,13 +20,14 @@ class Guests extends Component {
         const guests = this.props.celebs.map(celebs => {
             return (
                 <div key={celebs.id} className="col-md-5 m-1">
-                    <Card onClick={() => this.onCelebsSelect(celebs)}>
+                    <Card onClick={() => this.props.onClick(celebs.id)}>
                         <CardImg width="100%" src={celebs.image} alt={celebs.name} />
                         <CardImgOverlay>
                             <CardTitle>{celebs.name}</CardTitle>
                         </CardImgOverlay>
                     </Card>
                 </div>
+                
             );
         });
 
@@ -36,7 +37,6 @@ class Guests extends Component {
                 <div className="row">
                     {guests}
                 </div>
-                <GuestInfo celebs={this.state.selectedCelebs}></GuestInfo>
             </div>
         );
     }
