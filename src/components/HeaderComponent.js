@@ -1,5 +1,6 @@
-import React, { Component }  from 'react';
-import { Navbar, NavbarBrand, Jumbotron } from 'reactstrap';
+import React, {Component}  from 'react';
+import {Navbar, NavbarBrand, Jumbotron} from 'reactstrap';
+
 class Header extends Component {
     render() {
         return (
@@ -14,7 +15,7 @@ class Header extends Component {
                         </div>
                     </div>
                 </Jumbotron>
-                <Navbar dark sticky="top">
+                <Navbar dark sticky={"top"}>
                     <div className="container">
                         <NavbarBrand href="/">REGNAcon!</NavbarBrand>
                     </div>
@@ -24,4 +25,4 @@ class Header extends Component {
     }
 }
 
-export default Header
+export default Header;

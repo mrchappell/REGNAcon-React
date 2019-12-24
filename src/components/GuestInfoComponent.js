@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
     function RenderCeleb({celeb}) {
         return (
@@ -28,10 +28,7 @@ import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 're
                 </div>
             );
         }
-        return (
-            <div>
-            </div>
-        )
+        return <div />;
     }
 
 

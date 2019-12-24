@@ -6,14 +6,9 @@ h1, h2, h3, .card-body>h5 {
   font-family: "Yeon Sung", cursive;
 }
 
-h2 {
-  color: rgb(32, 44, 112);
-}
-
 .card-img-overlay h5 {
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
-  font-family: "Yeon Sung", cursive;
 }
 
 .row-content {
