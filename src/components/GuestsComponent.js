@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../App.css';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
 import GuestInfo from './GuestInfoComponent';
 
@@ -7,42 +6,37 @@ class Guests extends Component {
     constructor(props) {
         super(props);
         this.state = {
-                selectedCelebs: null
+            selectedCeleb: null
         };
-    }
+    };
 
-    onCelebsSelect(celebs) {
-        this.setState({selectedCelebs: celebs});
+    onCelebSelect(celeb) {
+        this.setState({ selectedCeleb: celeb });
     }
-
 
     render() {
-        const guests = this.props.celebs.map(celebs => {
+        const guests = this.props.celebs.map(celeb => {
             return (
-                <div key={celebs.id} className="col-md-5 m-1">
-                    <Card onClick={() => this.props.onClick(celebs.id)}>
-                        <CardImg width="100%" src={celebs.image} alt={celebs.name} />
+                <div key={celeb.id} className="col-md-5 m-1">
+                    <Card onClick={() => this.onCelebSelect(celeb)}>
+                        <CardImg width="100%" src={celeb.image} alt={celeb.name} />
                         <CardImgOverlay>
-                            <CardTitle>{celebs.name}</CardTitle>
+                            <CardTitle>{celeb.name}</CardTitle>
                         </CardImgOverlay>
                     </Card>
                 </div>
-                
             );
         });
-
 
         return (
             <div className="container">
                 <div className="row">
                     {guests}
                 </div>
+                    <GuestInfo celeb={this.state.selectedCeleb}></GuestInfo>
             </div>
         );
     }
 }
-
-
-
 
 export default Guests;

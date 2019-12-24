@@ -9,24 +9,24 @@ class Main extends Component {
         super(props);
         this.state = {
             celebs: CELEBS,
-            selectedCelebs: null
+            selectedCeleb: null
         };
     }
 
-    onCelebsSelect(celebsId) {
-        this.setState({selectedCelebs: celebsId});
+    onCelebSelect(celebId) {
+        this.setState({selectedCeleb: celebId});
     }
 
     render() {
         return (
             <div>
-                <Navbar dark color="success">
+                <Navbar dark color="primary">
                     <div className="container">
-                        <NavbarBrand href="/">REGNAcon! culture-con fit for geek royalty</NavbarBrand>
+                        <NavbarBrand href="/">REGNAcon!</NavbarBrand>
                     </div>
                 </Navbar>
-                <Guests celebs={this.state.celebs} onClick={celebsId => this.onCelebsSelect(celebsId)}/>
-                <GuestInfo celebs={this.state.celebs.filter(celebs => celebs.id === this.state.selectedCelebs)[0]} />
+                <Guests celebs={this.state.celebs} onClick={celebId => this.onCelebSelect(celebId)}/>
+                <GuestInfo celeb={this.state.celebs.filter(celeb => celeb.id === this.state.selectedCeleb)[0]} />
             </div>
         );
     };

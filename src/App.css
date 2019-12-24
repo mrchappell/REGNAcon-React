@@ -1,13 +1,50 @@
 body {
+  font-family: 'Yeon Sung', sans-serif;
+}
+
+h1, h2, h3, .card-body>h5 {
   font-family: "Yeon Sung", cursive;
 }
 
-.navbar {
-  font-family: 'Yeon Sung', cursive;
+h2 {
+  color: rgb(32, 44, 112);
 }
 
 .card-img-overlay h5 {
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
-  font-family: 'Yeon Sung', cursive;
+  font-family: "Yeon Sung", cursive;
+}
+
+.row-content {
+  padding: 50px 0;
+  border-bottom: 1px ridge;
+  min-height: 200px;
+}
+
+.site-footer {
+  background-image: linear-gradient(#AC3800, #8B360D);
+  padding: 20px 0;
+}
+
+.jumbotron {
+  padding: 30px;
+  background-image: linear-gradient(to right, rgb(0, 131, 85), rgb(0, 124, 80), rgb(9, 93, 64));
+  color: white;
+  margin: 0;
+  font-family: "Yeon Sung", cursive;
+}
+
+
+.jumbotron h2 {
+  color: #CEC8FF;
+}
+
+.navbar-dark {
+  background-color: #901CAD;
+  font-family: "Yeon Sung", cursive;
+}
+
+.navbar {
+  background-color: rgb(4, 51, 14);
 }

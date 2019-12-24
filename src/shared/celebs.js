@@ -170,5 +170,5 @@ export const CELEBS = [
                 date: "2019-07-23T19:44Z"
             }
         ]
-    }
+    },
 ]
