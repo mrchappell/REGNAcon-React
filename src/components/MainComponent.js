@@ -60,7 +60,7 @@ class Main extends Component {
                 <Footer />
             </div>
         );
-    };
+    }
 }
 
 export default Main;
