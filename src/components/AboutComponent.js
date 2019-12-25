@@ -32,13 +32,13 @@ function About(props) {
                 </div>
                 <div className="col-sm-6">
                     <Card>
-                        <CardHeader className="bg-primary text-white"><h3>Facts At a Glance</h3></CardHeader>
+                        <CardHeader className="bg-primary text-white"><h3>Stats</h3></CardHeader>
                         <CardBody>
                             <dl className="row">
                                 <dt className="col-6">Founded</dt>
                                 <dd className="col-6">March 3, 2018</dd>
                                    <dt className="col-6">Employees</dt>
-                                <dd className="col-6">42</dd>
+                                <dd className="col-6">9</dd>
                             </dl>
                         </CardBody>
                     </Card>
@@ -47,10 +47,10 @@ function About(props) {
                     <Card className="bg-light mt-3">
                         <CardBody>
                             <blockquote className="blockquote">
-                                <p className="mb-0">I will not follow where the path may lead, but I will go where there is no path, and I will leave a trail.</p>
-                                <footer className="blockquote-footer">Muriel Strode,{' '}
-                                    <cite title="Source Title">"Wind-Wafted Wild Flowers" -
-                                    The Open Court, 1903</cite>
+                                <p className="mb-0">"I used to be embarrassed because I was just a comic book writer while other people were building bridges or going on to medical careers. And then I began to realize: Entertainment is one of the most important things in people's lives. Without it, they might go off the deep end."</p>
+                                <footer className="blockquote-footer">Stan Lee,{' '}
+                                    <cite title="Source Title">1922 -
+                                    2018</cite>
                                 </footer>
                             </blockquote>
                         </CardBody>

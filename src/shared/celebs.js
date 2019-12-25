@@ -21,7 +21,7 @@ export const CELEBS = [
         image: '/assets/images/kevinconroy.jpg',
         elevation: 2901,
         featured: true,
-        description: "Kevin Conroy (born November 30, 1955) is an American actor and voice actor. He is best known for his voice role as the DC Comics character Batman on the 1990s Warner Bros. television show Batman: The Animated Series,[2] as well as various other TV series and feature films in the DC animated universe. Due to the popularity of his performance as Batman, Conroy went on to voice the character for multiple films under the DC Universe Animated Original Movies banner, the critically acclaimed Batman: Arkham video games, and in fall 2019 he will play a live action Bruce Wayne in the Arrowverse adaptation of Crisis on Infinite Earths.",
+        description: "Kevin Conroy (born November 30, 1955) is an American actor and voice actor. He is best known for his voice role as the DC Comics character Batman on the 1990s Warner Bros. television show Batman: The Animated Series, as well as various other TV series and feature films in the DC animated universe. Due to the popularity of his performance as Batman, Conroy went on to voice the character for multiple films under the DC Universe Animated Original Movies banner, the critically acclaimed Batman: Arkham video games, and in fall 2019 he will play a live action Bruce Wayne in the Arrowverse adaptation of Crisis on Infinite Earths.",
     },
     {
         id: 3,
