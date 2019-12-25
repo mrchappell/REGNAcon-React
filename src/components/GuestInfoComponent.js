@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardBody, CardText, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
     function RenderCeleb({celeb}) {
         return (
@@ -7,7 +8,6 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
                 <Card>
                     <CardImg top src={celeb.image} alt={celeb.name} />
                     <CardBody>
-                        <CardTitle>{celeb.name}</CardTitle>
                         <CardText>{celeb.description}</CardText>
                     </CardBody>
                 </Card>
@@ -36,6 +36,16 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
         if (props.celeb) {
             return (
                 <div className="container">
+                    <div className="row">
+                        <div className="col">
+                            <Breadcrumb>
+                                <BreadcrumbItem><Link to="/guests">Guests</Link></BreadcrumbItem>
+                                <BreadcrumbItem active>{props.celeb.name}</BreadcrumbItem>
+                            </Breadcrumb>
+                            <h2>{props.celeb.name}</h2>
+                            <hr />
+                        </div>
+                    </div>
                     <div className="row">
                         <RenderCeleb celeb={props.celeb} />
                         <RenderComments comments={props.celeb.comments} />
