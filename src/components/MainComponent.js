@@ -48,10 +48,11 @@ class Main extends Component {
             );
         };
 
-        const CelebWithId = ({match}) => {
+        const CelebWithId = ({ match }) => {
             return (
-                <GuestInfo celeb={this.props.celebs.filter(celeb => celeb.id === +match.params.celebId)[0]} 
-                  comments={this.props.comments.filter(comment => comment.celebId === +match.params.celebId)} />
+                <GuestInfo
+                    celeb={this.props.celebs.filter(celeb => celeb.id === +match.params.celebId)[0]}
+                    comments={this.props.comments.filter(comment => comment.celebId === +match.params.celebId)} />
             );
         };
 
@@ -63,7 +64,7 @@ class Main extends Component {
                     <Route exact path='/Guests' render={() => <Guests celebs={this.props.celebs} />} />
                     <Route path='/guests/:celebId' component={CelebWithId} />
                     <Route exact path='/contactus' component={Contact} />
-                    <Route exact path='/aboutus' render={() => <About partners={this.props.partners} /> } />
+                    <Route exact path='/aboutus' render={() => <About partners={this.props.partners} />} />
                     <Redirect to='/home' />
                 </Switch>
                 <Footer />
