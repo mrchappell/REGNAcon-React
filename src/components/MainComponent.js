@@ -6,11 +6,22 @@ import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import About from './AboutComponent';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { CELEBS } from '../shared/celebs';
 import { COMMENTS } from '../shared/comments';
 import { PARTNERS } from '../shared/partners';
 import { PROMOTIONS } from '../shared/promotions';
+import { connect } from 'react-redux';
+
+
+const mapStateToProps = state => {
+    return {
+        celebs: state.celebs,
+        comments: state.comments,
+        partners: state.partners,
+        promotions: state.promotions
+    };
+};
 
 
 class Main extends Component {
@@ -30,19 +41,17 @@ class Main extends Component {
         const HomePage = () => {
             return (
                 <Home
-                    celeb={this.state.celebs.filter(celeb => celeb.featured)[0]}
-                    promotion={this.state.promotions.filter(promotion => promotion.featured)[0]}
-                    partner={this.state.partners.filter(partner => partner.featured)[0]}
+                    celeb={this.props.celebs.filter(celeb => celeb.featured)[0]}
+                    promotion={this.props.promotions.filter(promotion => promotion.featured)[0]}
+                    partner={this.props.partners.filter(partner => partner.featured)[0]}
                 />
             );
-        }
+        };
 
-        const CelebWithId = ({ match }) => {
+        const CelebWithId = ({match}) => {
             return (
-                <GuestInfo
-                    celeb={this.state.celebs.filter(celeb => celeb.id === +match.params.celebId)[0]}
-                    comments={this.state.comments.filter(comment => comment.celebId === +match.params.celebId)}
-                />
+                <GuestInfo celeb={this.props.celebs.filter(celeb => celeb.id === +match.params.celebId)[0]} 
+                  comments={this.props.comments.filter(comment => comment.celebId === +match.params.celebId)} />
             );
         };
 
@@ -51,10 +60,10 @@ class Main extends Component {
                 <Header />
                 <Switch>
                     <Route path='/home' component={HomePage} />
-                    <Route exact path='/Guests' render={() => <Guests celebs={this.state.celebs} />} />
-                    <Route path='/Guests/:celebId' component={CelebWithId} />
+                    <Route exact path='/Guests' render={() => <Guests celebs={this.props.celebs} />} />
+                    <Route path='/guests/:celebId' component={CelebWithId} />
                     <Route exact path='/contactus' component={Contact} />
-                    <Route exact path='/aboutus' render={() => <About partners={this.state.partners} />} />
+                    <Route exact path='/aboutus' render={() => <About partners={this.props.partners} /> } />
                     <Redirect to='/home' />
                 </Switch>
                 <Footer />
@@ -63,4 +72,4 @@ class Main extends Component {
     }
 }
 
-export default Main;
+export default withRouter(connect(mapStateToProps)(Main));
