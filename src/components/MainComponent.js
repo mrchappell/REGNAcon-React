@@ -8,7 +8,7 @@ import Contact from './ContactComponent';
 import About from './AboutComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { addComment, fetchCelebs } from '../redux/ActionCreators';
+import { addComment, fetchCelebs, fetchComments, fetchPromotions } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 
 
@@ -24,13 +24,17 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
     addComment: (campsiteId, rating, author, text) => (addComment(campsiteId, rating, author, text)),
     fetchCelebs: () => (fetchCelebs()),
-    resetFeedbackForm: () => (actions.reset('feedbackForm'))
+    resetFeedbackForm: () => (actions.reset('feedbackForm')),
+    fetchComments: () => (fetchComments()),
+    fetchPromotions: () => (fetchPromotions())
 };
 
 class Main extends Component {
 
     componentDidMount() {
         this.props.fetchCelebs();
+        this.props.fetchComments();
+        this.props.fetchPromotions();
     }
 
     render() {
@@ -41,8 +45,10 @@ class Main extends Component {
                     celeb={this.props.celebs.celebs.filter(celeb => celeb.featured)[0]}
                     celebsLoading={this.props.celebs.isLoading}
                     celebsErrMess={this.props.celebs.errMess}
-                    promotion={this.props.promotions.filter(promotion => promotion.featured)[0]}
                     partner={this.props.partners.filter(partner => partner.featured)[0]}
+                    promotion={this.props.promotions.promotions.filter(promotion => promotion.featured)[0]}
+                    promotionLoading={this.props.promotions.isLoading}
+                    promotionErrMess={this.props.promotions.errMess}
                 />
             );
         }
@@ -53,9 +59,10 @@ class Main extends Component {
                     celeb={this.props.celebs.celebs.filter(celeb => celeb.id === +match.params.celebId)[0]}
                     isLoading={this.props.celebs.isLoading}
                     errMess={this.props.celebs.errMess}
-                    comments={this.props.comments.filter(comment => comment.celebId === +match.params.celebId)}
+                    comments={this.props.comments.comments.filter(comment => comment.celebId === +match.params.celebId)}
+                    commentsErrMess={this.props.comments.errMess}
                     addComment={this.props.addComment}
-                />
+                />         
             );
         };
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem, Button, ModalHeader, Modal, ModalBody, Label, Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
+import { baseUrl } from '../shared/baseUrl';
 
 const required = val => val && val.length;
 const maxLength = len => val => !val || (val.length <= len);
@@ -93,7 +94,7 @@ function RenderCeleb({ celeb }) {
     return (
         <div className="col-md-5 m-1">
             <Card>
-                <CardImg top src={celeb.image} alt={celeb.name} />
+                <CardImg top src={baseUrl + celeb.image} alt={celeb.name} />
                 <CardBody>
                     <CardText>{celeb.description}</CardText>
                 </CardBody>

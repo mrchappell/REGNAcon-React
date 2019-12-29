@@ -2,12 +2,13 @@ import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
+import {baseUrl} from '../shared/baseUrl';
 
 function RenderGuestsItem({ celeb }) {
     return (
         <Card>
             <Link to={`/guests/${celeb.id}`}>
-            <CardImg width="100%" src={celeb.image} alt={celeb.name} />
+            <CardImg width="100%" src={baseUrl + celeb.image} alt={celeb.name} />
                 <CardImgOverlay>
                     <CardTitle>{celeb.name}</CardTitle>
                 </CardImgOverlay>

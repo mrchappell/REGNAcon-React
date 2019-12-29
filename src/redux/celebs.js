@@ -1,4 +1,3 @@
-import { CELEBS } from '../shared/celebs';
 import * as ActionTypes from './ActionTypes';
 
 export const Celebs = (state = {
