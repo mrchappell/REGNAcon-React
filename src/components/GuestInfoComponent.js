@@ -21,8 +21,7 @@ class CommentForm extends Component {
 
     handleSubmit(values) {
         this.toggleModal();
-        console.log('Current state is: ' + JSON.stringify(values));
-        alert('Current state is: ' + JSON.stringify(values));
+        this.props.addComment(this.props.celebId, values.author, values.text);
     }
 
     toggleModal() {
@@ -103,7 +102,7 @@ function RenderCeleb({ celeb }) {
     );
 }
 
-function RenderComments({ comments }) {
+function RenderComments({ comments, addComment, celebId }) {
     if (comments) {
         return (
             <div className="col-md-5 m-1">
@@ -114,7 +113,7 @@ function RenderComments({ comments }) {
                         <br />
                     </div>);
                 })}
-                <CommentForm />
+                <CommentForm celebId={celebId} addComment={addComment} />
             </div>
 
         );
@@ -142,7 +141,11 @@ function GuestInfo(props) {
                 </div>
                 <div className="row">
                     <RenderCeleb celeb={props.celeb} />
-                    <RenderComments comments={props.comments} />
+                    <RenderComments 
+                        comments={props.comments}
+                        addComment={props.addComment}
+                        celebId={props.celeb.id}
+                    />
                 </div>
             </div >
         );

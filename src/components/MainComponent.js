@@ -12,6 +12,7 @@ import { COMMENTS } from '../shared/comments';
 import { PARTNERS } from '../shared/partners';
 import { PROMOTIONS } from '../shared/promotions';
 import { connect } from 'react-redux';
+import { addComment } from '../redux/ActionCreators';
 
 
 const mapStateToProps = state => {
@@ -23,6 +24,9 @@ const mapStateToProps = state => {
     };
 };
 
+const mapDispatchToProps = {
+    addComment: (celebId, rating, author, text) => (addComment(celebId, rating, author, text))
+};
 
 class Main extends Component {
     constructor(props) {
@@ -50,9 +54,11 @@ class Main extends Component {
 
         const CelebWithId = ({ match }) => {
             return (
-                <GuestInfo
-                    celeb={this.props.celebs.filter(celeb => celeb.id === +match.params.celebId)[0]}
-                    comments={this.props.comments.filter(comment => comment.celebId === +match.params.celebId)} />
+                <GuestInfo 
+                celeb={this.props.celebs.filter(celeb => celeb.id === +match.params.celebId)[0]} 
+                comments={this.props.comments.filter(comment => comment.celebId === +match.params.celebId)}
+                addComment={this.props.addComment}
+            />
             );
         };
 
@@ -73,4 +79,4 @@ class Main extends Component {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(Main));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
