@@ -1,1 +1,4 @@
 export const ADD_COMMENT = 'ADD_COMMENT';
+export const CELEBS_LOADING = 'CELEBS_LOADING';
+export const CELEBS_FAILED = 'CELEBS_FAILED';
+export const ADD_CELEBS = 'ADD_CELEBS';
