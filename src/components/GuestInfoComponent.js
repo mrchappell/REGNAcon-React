@@ -22,7 +22,7 @@ class CommentForm extends Component {
 
     handleSubmit(values) {
         this.toggleModal();
-        this.props.addComment(this.props.celebId, values.rating, values.author, values.text);
+        this.props.postComment(this.props.celebId, values.rating, values.author, values.text);
     }
 
     toggleModal() {
@@ -103,7 +103,7 @@ function RenderCeleb({ celeb }) {
     );
 }
 
-function RenderComments({ comments, addComment, celebId }) {
+function RenderComments({ comments, postComment, celebId }) {
     if (comments) {
         return (
             <div className="col-md-5 m-1">
@@ -114,7 +114,7 @@ function RenderComments({ comments, addComment, celebId }) {
                         <br />
                     </div>);
                 })}
-                <CommentForm celebId={celebId} addComment={addComment} />
+                <CommentForm celebId={celebId} postComment={postComment} />
             </div>
 
         );
@@ -144,7 +144,7 @@ function GuestInfo(props) {
                     <RenderCeleb celeb={props.celeb} />
                     <RenderComments 
                         comments={props.comments}
-                        addComment={props.addComment}
+                        postComment={props.postComment}
                         celebId={props.celeb.id}
                     />
                 </div>
