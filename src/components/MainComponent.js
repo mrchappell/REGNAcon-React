@@ -7,12 +7,9 @@ import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import About from './AboutComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
-import { CELEBS } from '../shared/celebs';
-import { COMMENTS } from '../shared/comments';
-import { PARTNERS } from '../shared/partners';
-import { PROMOTIONS } from '../shared/promotions';
 import { connect } from 'react-redux';
 import { addComment, fetchCelebs } from '../redux/ActionCreators';
+import { actions } from 'react-redux-form';
 
 
 const mapStateToProps = state => {
@@ -26,7 +23,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     addComment: (campsiteId, rating, author, text) => (addComment(campsiteId, rating, author, text)),
-    fetchCelebs: () => (fetchCelebs())
+    fetchCelebs: () => (fetchCelebs()),
+    resetFeedbackForm: () => (actions.reset('feedbackForm'))
 };
 
 class Main extends Component {
@@ -68,7 +66,7 @@ class Main extends Component {
                     <Route path='/home' component={HomePage} />
                     <Route exact path='/Guests' render={() => <Guests celebs={this.props.celebs} />} />
                     <Route path='/guests/:celebId' component={CelebWithId} />
-                    <Route exact path='/contactus' component={Contact} />
+                    <Route exact path='/contactus' render={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} /> } />
                     <Route exact path='/aboutus' render={() => <About partners={this.props.partners} />} />
                     <Redirect to='/home' />
                 </Switch>
