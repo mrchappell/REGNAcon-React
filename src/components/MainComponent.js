@@ -8,7 +8,7 @@ import Contact from './ContactComponent';
 import About from './AboutComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { postComment, fetchCelebs, fetchComments, fetchPromotions } from '../redux/ActionCreators';
+import { postComment, fetchCelebs, fetchComments, fetchPromotions, fetchPartners, postFeedback } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
@@ -27,7 +27,9 @@ const mapDispatchToProps = {
     fetchCelebs: () => (fetchCelebs()),
     resetFeedbackForm: () => (actions.reset('feedbackForm')),
     fetchComments: () => (fetchComments()),
-    fetchPromotions: () => (fetchPromotions())
+    fetchPromotions: () => (fetchPromotions()),
+    fetchPartners: () => (fetchPartners()),
+    postFeedback: () => (postFeedback())
 };
 
 class Main extends Component {
@@ -36,6 +38,7 @@ class Main extends Component {
         this.props.fetchCelebs();
         this.props.fetchComments();
         this.props.fetchPromotions();
+        this.props.fetchPartners();
     }
 
     render() {
@@ -46,13 +49,16 @@ class Main extends Component {
                     celeb={this.props.celebs.celebs.filter(celeb => celeb.featured)[0]}
                     celebsLoading={this.props.celebs.isLoading}
                     celebsErrMess={this.props.celebs.errMess}
-                    partner={this.props.partners.filter(partner => partner.featured)[0]}
+                    partner={this.props.partners.partners.filter(partner => partner.featured)[0]}
+                    partnersLoading={this.props.partners.isLoading}
+                    partnersErrMess={this.props.partners.errMess}
                     promotion={this.props.promotions.promotions.filter(promotion => promotion.featured)[0]}
                     promotionLoading={this.props.promotions.isLoading}
                     promotionErrMess={this.props.promotions.errMess}
                 />
             );
         }
+
 
         const CelebWithId = ({ match }) => {
             return (
@@ -76,7 +82,7 @@ class Main extends Component {
                             <Route path='/home' component={HomePage} />
                             <Route exact path='/Guests' render={() => <Guests celebs={this.props.celebs} />} />
                             <Route path='/guests/:celebId' component={CelebWithId} />
-                            <Route exact path='/contactus' render={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
+                            <Route exact path='/contactus' render={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} />} />
                             <Route exact path='/aboutus' render={() => <About partners={this.props.partners} />} />
                             <Redirect to='/home' />
                         </Switch>
